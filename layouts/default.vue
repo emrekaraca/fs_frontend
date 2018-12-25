@@ -1,7 +1,7 @@
 <template>
-  <div class="page-container has-background-light">
+  <div class="page-container">
     <nav-bar />
-    <div style="height: 500px">space</div>
+    <nuxt />
     <footer-bar />
 
     <!-- <section class="main-content columns">
@@ -32,6 +32,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: #f2ebe3;
 }
 .page-title {
   font-size: 2rem;

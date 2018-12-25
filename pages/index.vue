@@ -1,39 +1,16 @@
 <template>
-  <div class="columns is-multiline">
-    <div class="column is-12 page-section">
-      <div
-        class="columns"
-        style="height: 100%"
-      >
-        <div class="column is-12-mobile is-10-desktop is-offset-1-desktop is-8-widescreen is-offset-2-widescreen">
-          <div
-            class="columns is-vcentered"
-            style="height: 100%"
-          >
-            <div class="column is-6">
-              <h2 class="section-title">{{ post.fields.pageTitle }}</h2>
-              <p class="section-subtitle">{{ post.fields.pageText }}</p>
-            </div>
-            <div class="column is-6">
-              <div style="width: 400px; height: 400px">
-                <img
-                  :src="post.fields.heroImage.fields.file.url"
-                  alt=""
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="column is-12 page-section has-background-primary has-text-white">
-      <div class="columns">
-        <div class="column is-12-mobile is-10-desktop is-offset-1-desktop is-8-widescreen is-offset-2-widescreen">
-          <p>TEST</p>
-        </div>
-      </div>
-    </div>
+  <div class="page-outer-container">
+    <div class="page-section-outer-container">
+      <div class="page-section-inner-container">
+        <h2 class="section-title">{{ post.fields.pageTitle }}</h2>
+        <p class="section-subtitle">{{ post.fields.pageText }}</p>
+        <!-- <img
+        :src="post.fields.heroImage.fields.file.url"
+        alt=""
+      > -->
 
+      </div>
+    </div>
   </div>
 
 </template>
@@ -63,12 +40,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hero-container {
-  background: red;
+.page-outer-container {
   width: 100%;
 }
-.page-section {
+.page-section-outer-container {
+  width: 100%;
   height: 600px;
+  background: #f2ebe3;
+  display: flex;
+  justify-content: center;
+  .page-section-inner-container {
+    width: 1100px;
+    height: 100%;
+    padding: 30px;
+    border: 1px dashed grey;
+  }
 }
 .section-title {
   font-size: 3rem;

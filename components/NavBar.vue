@@ -6,7 +6,10 @@
         alt="FS-logos"
         class="navbar-logo-image"
       >
-      <p class="navbar-logo-title">FITOSOFİA</p>
+      <nuxt-link
+        to="/"
+        class="navbar-logo-title"
+      >FITOSOFİA</nuxt-link>
     </div>
     <div class="navbar-menu">
       <nuxt-link
@@ -39,7 +42,8 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 15px;
+  padding: 0 18px;
+  z-index: 9999;
   .navbar-logo {
     height: 100%;
     display: flex;
