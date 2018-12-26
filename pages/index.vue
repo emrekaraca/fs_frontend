@@ -1,14 +1,39 @@
 <template>
   <div class="page-outer-container">
-    <div class="page-section-outer-container">
-      <div class="page-section-inner-container">
-        <h2 class="section-title">{{ post.fields.pageTitle }}</h2>
-        <p class="section-subtitle">{{ post.fields.pageText }}</p>
-        <!-- <img
-        :src="post.fields.heroImage.fields.file.url"
-        alt=""
-      > -->
+    <div class="title-section-outer-container">
+      <div class="title-section-inner-container">
+        <div class="title-section-left">
+          <h2 class="title-section-title">{{ homepage.fields.pageTitle }}</h2>
+          <h4 class="title-section-subtitle">{{ homepage.fields.pageText }}</h4>
+        </div>
+        <div class="title-section-right">
+          <img
+            :src="homepage.fields.heroImage.fields.file.url"
+            class="title-section-image"
+            alt=""
+          >
 
+        </div>
+
+      </div>
+    </div>
+    <div class="blogposts-section-outer-container">
+      <div class="blogposts-section-inner-container">
+        <div class="blogposts-section-upper-third">
+          <h3 class="blogposts-section-title">En son blog yazilari</h3>
+        </div>
+        <div class="blogposts-section-lower-third">
+          <template v-for="blogpost in blogposts">
+            <div
+              :key="blogpost"
+              class="blogpost-tile"
+            >
+              <h4 class="blogpost-title">{{ blogpost.fields.title }}</h4>
+              <p class="blogpost-summary">{{ blogpost.fields.summary }}</p>
+              <button class="blogpost-button">Okumaya devam et</button>
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>
@@ -25,13 +50,18 @@ export default {
       client.getEntries({
         content_type: 'homepage',
         order: '-sys.createdAt'
+      }),
+      client.getEntries({
+        content_type: 'blogPost',
+        order: '-sys.createdAt'
       })
     ])
-      .then(([posts]) => {
+      .then(([homepagePosts, blogPosts]) => {
         // return data that should be available
         // in the template
         return {
-          post: posts.items[0]
+          homepage: homepagePosts.items[0],
+          blogposts: blogPosts.items.slice(0, 3)
         }
       })
       .catch(console.error)
@@ -40,30 +70,126 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import './../assets/buefy_custom.scss';
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: 'Dosis', sans-serif;
+}
 .page-outer-container {
   width: 100%;
 }
-.page-section-outer-container {
+.title-section-outer-container {
   width: 100%;
   height: 600px;
   background: #f2ebe3;
   display: flex;
   justify-content: center;
-  .page-section-inner-container {
+  .title-section-inner-container {
+    position: relative;
     width: 1100px;
     height: 100%;
     padding: 30px;
     border: 1px dashed grey;
+    display: flex;
+    .title-section-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 50%;
+      height: 100%;
+      .title-section-title {
+        font-size: 3rem;
+        font-weight: 600;
+      }
+      .title-section-subtitle {
+        font-size: 1rem;
+        color: #ca6c73;
+      }
+    }
+    .title-section-right {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      height: 100%;
+      .title-section-image {
+        width: 80%;
+        box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 #ca6c73;
+      }
+    }
   }
 }
-.section-title {
-  font-size: 3rem;
-  font-weight: 600;
-  font-family: 'Dosis', sans-serif;
-}
-.section-subtitle {
-  font-size: 1rem;
-  font-family: 'Dosis', sans-serif;
-  color: #ca6c73;
+.blogposts-section-outer-container {
+  width: 100%;
+  height: 600px;
+  background: $primary;
+  display: flex;
+  justify-content: center;
+  .blogposts-section-inner-container {
+    position: relative;
+    width: 1100px;
+    height: 100%;
+    padding: 30px;
+    border: 1px dashed lightgrey;
+    display: flex;
+    flex-direction: column;
+    .blogposts-section-upper-third {
+      height: calc(100% / 3);
+      width: 100%;
+      /* background: rgba(0, 0, 0, 0.1); */
+      .blogposts-section-title {
+        text-align: right;
+        color: #f2ebe3;
+        font-size: 3rem;
+        font-weight: 600;
+      }
+    }
+    .blogposts-section-lower-third {
+      position: relative;
+      height: calc((100% / 3) * 2);
+      width: 100%;
+      /* background: rgba(0, 0, 0, 0.3); */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .blogpost-tile {
+        width: 30%;
+        height: 90%;
+        /* background: rgba(255, 255, 255, 0.2); */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .blogpost-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+          color: white;
+        }
+        .blogpost-summary {
+          font-size: 1rem;
+          color: white;
+        }
+        .blogpost-button {
+          width: 100%;
+          height: 50px;
+          border: 2px solid white;
+          border-radius: 2px;
+          font-family: 'Dosis', sans-serif;
+          font-size: 1.5rem;
+          text-align: center;
+          color: white;
+          background: none;
+          cursor: pointer;
+          transition: 0.2s;
+          &:hover {
+            background: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+  }
 }
 </style>
