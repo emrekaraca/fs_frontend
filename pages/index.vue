@@ -83,7 +83,7 @@ p {
 }
 .title-section-outer-container {
   width: 100%;
-  height: 600px;
+  height: calc(100vh - 80px);
   background: #f2ebe3;
   display: flex;
   justify-content: center;
@@ -125,7 +125,7 @@ p {
 }
 .blogposts-section-outer-container {
   width: 100%;
-  height: 600px;
+  height: calc(100vh - 80px);
   background: $primary;
   display: flex;
   justify-content: center;
