@@ -2,13 +2,11 @@
   <b-container class="blog-entry-outer-container">
     <b-row>
       <b-col cols="7">
-        <!-- <img
-          :src="`${post.fields.image.fields.file.url}`"
-          alt="blog-post-image"
-          class="blog-entry-preview-image"
-        > -->
         <div class="blog-entry-preview-image">
-          <h4>Preview Image</h4>
+          <img
+            :src="`${post.fields.image.fields.file.url}?fit=fill&w=400&h=300`"
+            alt="asd"
+          >
         </div>
       </b-col>
       <b-col
@@ -76,5 +74,12 @@ export default {
   /* background: $light; */
   border: 5px solid $primary;
   box-sizing: border-box;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    transform: translate(-50%, -50%);
+  }
 }
 </style>

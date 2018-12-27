@@ -1,3 +1,3 @@
 <template>
-  <h1>Hakkımizda</h1>
+  <h1>Hakkımızda</h1>
 </template>

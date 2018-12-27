@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import BlogEntry from '@/components/BlogEntry'
+import BlogEntry from './BlogEntry'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {

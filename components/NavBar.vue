@@ -25,9 +25,17 @@
         to="/services"
       ><span>Hizmetler</span></nuxt-link>
       <nuxt-link
+        :class="$route.name==='calendar'?'selected':''"
+        to="/calendar"
+      ><span>Etkinlikler</span></nuxt-link>
+      <nuxt-link
         :class="$route.name==='academy'?'selected':''"
         to="/academy"
       ><span>Akademi</span></nuxt-link>
+      <nuxt-link
+        :class="$route.name==='shop'?'selected':''"
+        to="/shop"
+      ><span>Shop</span></nuxt-link>
       <nuxt-link
         :class="$route.name==='about'?'selected':''"
         to="/about"
@@ -47,6 +55,7 @@
   box-sizing: border-box;
   padding: 0 18px;
   z-index: 9999;
+  margin-bottom: 20px;
   .navbar-logo {
     height: 100%;
     display: flex;

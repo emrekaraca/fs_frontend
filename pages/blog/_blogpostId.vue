@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h1>This is blog post {{ post.fields.title }}</h1>
-    <h4>Date: {{ post.fields.publishDate.slice(0,10) }}</h4>
+  <div class="blog-outer-container">
+    <br>
+    <h1>{{ post.fields.title }}</h1>
+    <br>
+    <h4>Tarih: {{ post.fields.publishDate.slice(0,10) }}</h4>
+    <br>
     <template v-for="(paragraph, index) in post.fields.text.content">
       <template v-if="paragraph.nodeType === 'paragraph'">
         <p :key="index">
@@ -79,6 +82,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.blog-outer-container {
+  width: 1100px;
+}
 .text--bold {
   font-weight: 800;
 }

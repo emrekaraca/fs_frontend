@@ -1,3 +1,3 @@
 <template>
-  <h1>SHOP</h1>
+  <h1>Online Shop</h1>
 </template>

@@ -1,5 +1,6 @@
 <template>
   <div class="page-outer-container">
+    <h1>Hizmetler</h1>
     <div
       v-for="service in services"
       :key="service.fields.order"
@@ -42,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .page-outer-container {
-  width: 100%;
+  width: 1100px;
   .service-section-outer-container {
     width: 100%;
     height: 500px;
