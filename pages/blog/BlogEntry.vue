@@ -19,7 +19,7 @@
         <nuxt-link
           :to="`/blog/${post.fields.slug}`"
           class="blog-entry-button"
-        >Okum aya devam et</nuxt-link>
+        >Okumaya devam et</nuxt-link>
       </b-col>
     </b-row>
   </b-container>

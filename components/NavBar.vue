@@ -27,15 +27,15 @@
       <nuxt-link
         :class="$route.name==='calendar'?'selected':''"
         to="/calendar"
-      ><span>Etkinlikler</span></nuxt-link>
+      ><span>Etkinlik Takvimi </span></nuxt-link>
       <nuxt-link
         :class="$route.name==='academy'?'selected':''"
         to="/academy"
       ><span>Akademi</span></nuxt-link>
-      <nuxt-link
+      <!-- <nuxt-link
         :class="$route.name==='shop'?'selected':''"
         to="/shop"
-      ><span>Shop</span></nuxt-link>
+      ><span>Shop</span></nuxt-link> -->
       <nuxt-link
         :class="$route.name==='about'?'selected':''"
         to="/about"
