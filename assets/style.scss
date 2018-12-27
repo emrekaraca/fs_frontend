@@ -1,0 +1,35 @@
+// Set your colors
+$primary: #50767b;
+$primary-invert: findColorInvert($primary);
+$light: #f2ebe3;
+$red: #ca6c73;
+
+body {
+  margin: 0;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  button {
+    font-family: 'Dosis', sans-serif;
+    color: $primary;
+  }
+  a {
+    text-decoration: none;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}

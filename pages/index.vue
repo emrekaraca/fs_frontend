@@ -20,7 +20,8 @@
     <div class="blogposts-section-outer-container">
       <div class="blogposts-section-inner-container">
         <div class="blogposts-section-upper-third">
-          <h3 class="blogposts-section-title">En son blog yazilari</h3>
+          <h3 class="blogposts-section-title">En son yazılar</h3>
+          <button class="blogpost-button">Tüm yazılar</button>
         </div>
         <div class="blogposts-section-lower-third">
           <template v-for="blogpost in blogposts">
@@ -44,6 +45,7 @@
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {
+  transition: 'page',
   asyncData({ env }) {
     return Promise.all([
       // fetch all blog posts sorted by creation date
@@ -70,7 +72,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import './../assets/buefy_custom.scss';
 h1,
 h2,
 h3,
@@ -140,12 +141,17 @@ p {
     .blogposts-section-upper-third {
       height: calc(100% / 3);
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
       /* background: rgba(0, 0, 0, 0.1); */
       .blogposts-section-title {
-        text-align: right;
         color: #f2ebe3;
         font-size: 3rem;
         font-weight: 600;
+      }
+      button {
+        width: initial;
       }
     }
     .blogposts-section-lower-third {
@@ -172,22 +178,22 @@ p {
           font-size: 1rem;
           color: white;
         }
-        .blogpost-button {
-          width: 100%;
-          height: 50px;
-          border: 2px solid white;
-          border-radius: 2px;
-          font-family: 'Dosis', sans-serif;
-          font-size: 1.5rem;
-          text-align: center;
-          color: white;
-          background: none;
-          cursor: pointer;
-          transition: 0.2s;
-          &:hover {
-            background: rgba(255, 255, 255, 0.1);
-          }
-        }
+      }
+    }
+    .blogpost-button {
+      width: 100%;
+      height: 50px;
+      border: 2px solid white;
+      border-radius: 2px;
+      font-family: 'Dosis', sans-serif;
+      font-size: 1.5rem;
+      text-align: center;
+      color: white;
+      background: none;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
       }
     }
   }

@@ -9,7 +9,7 @@
       <nuxt-link
         to="/"
         class="navbar-logo-title"
-      >FITOSOFİA</nuxt-link>
+      >FİTOSOFİA</nuxt-link>
     </div>
     <div class="navbar-menu">
       <nuxt-link
@@ -17,9 +17,13 @@
         to="/"
       ><span>Anasayfa</span></nuxt-link>
       <nuxt-link
-        :class="$route.name==='blog'?'selected':''"
+        :class="$route.path.split('/')[1]==='blog'?'selected':''"
         to="/blog"
-      ><span>Blog</span></nuxt-link>
+      ><span>Yazılar</span></nuxt-link>
+      <nuxt-link
+        :class="$route.name==='services'?'selected':''"
+        to="/services"
+      ><span>Hizmetler</span></nuxt-link>
       <nuxt-link
         :class="$route.name==='academy'?'selected':''"
         to="/academy"
@@ -33,7 +37,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import './../assets/buefy_custom.scss';
 .navbar-outer-container {
   width: 100%;
   height: 80px;
@@ -77,7 +80,7 @@
       cursor: pointer;
       transition: 0.2s;
       &:after {
-        transition: 0.3s;
+        /* transition: 0.2s; */
         position: absolute;
         content: '';
         width: 100%;

@@ -1,35 +1,30 @@
+
 <template>
   <div class="page-outer-container">
     <div class="page-inner-container">
       <h1>Blog</h1>
       <br>
-      <div class="columns is-multiline">
-        <div
-          v-for="post in posts"
+      <template v-for="post in posts">
+        <blog-entry
           :key="post.fields.title"
-          class="column is-6-desktop is-12-mobile"
-        >
-          <h2 class="is-size-4">{{ post.fields.title }}</h2>
-          <img
-            :src="`${post.fields.image.fields.file.url}?w=400&h=200`"
-            :alt="post.fields.image.fields.description"
-          >
-          <p>{{ post.fields.summary }}</p>
+          :post="post"
+        />
 
-        </div>
-      </div>
-
+      </template>
     </div>
   </div>
 
 </template>
 
 <script>
-console.log(process.env)
+import BlogEntry from '@/components/BlogEntry'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {
   name: 'Home',
+  components: {
+    BlogEntry
+  },
   data() {
     return {}
   },

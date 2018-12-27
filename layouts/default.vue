@@ -2,7 +2,7 @@
   <div class="page-container">
     <nav-bar />
     <nuxt />
-    <footer-bar />
+    <!-- <footer-bar /> -->
 
     <!-- <section class="main-content columns">
       <div class="column is-12 has-background-light">

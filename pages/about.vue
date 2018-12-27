@@ -1,3 +1,3 @@
 <template>
-  <h1>Akademi</h1>
+  <h1>Hakkımizda</h1>
 </template>
