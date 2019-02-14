@@ -2,41 +2,57 @@
   <div class="page-outer-container">
     <div class="title-section-outer-container">
       <div class="title-section-inner-container">
-        <div class="title-section-left">
-          <h2 class="title-section-title">{{ homepage.fields.pageTitle }}</h2>
-          <h4 class="title-section-subtitle">{{ homepage.fields.pageText }}</h4>
-        </div>
-        <div class="title-section-right">
-          <img
-            :src="homepage.fields.heroImage.fields.file.url"
-            class="title-section-image"
-            alt=""
-          >
+        <b-container>
+          <b-row>
+            <b-col
+              cols="12"
+              md="6"
+              class="title-section-left"
+            >
+              <h2 class="title-section-title">{{ homepage.fields.pageTitle }}</h2>
+              <h4 class="title-section-subtitle">{{ homepage.fields.pageText }}</h4>
+              <h4>Sitemiz yapım aşamasındadır...</h4>
+              <br>
+            </b-col>
+            <b-col
+              cols="12"
+              md="6"
+              class="title-section-right"
+            >
+              <img
+                :src="homepage.fields.heroImage.fields.file.url"
+                class="title-section-image"
+                alt=""
+              >
 
-        </div>
-
+            </b-col>
+          </b-row>
+        </b-container>
       </div>
     </div>
-    <!-- <div class="blogposts-section-outer-container">
-      <div class="blogposts-section-inner-container">
-        <div class="blogposts-section-upper-third">
-          <h3 class="blogposts-section-title">En son yazılar</h3>
-          <button class="blogpost-button">Tüm yazılar</button>
+    <!--
+          <div
+          class="blogposts-section-outer-container"
+        >
+        <div class="blogposts-section-inner-container">
+          <div class="blogposts-section-upper-third">
+            <h3 class="blogposts-section-title">En son yazılar</h3>
+            <button class="blogpost-button">Tüm yazılar</button>
+          </div>
+          <div class="blogposts-section-lower-third">
+            <template v-for="blogpost in blogposts">
+              <div
+                :key="blogpost"
+                class="blogpost-tile"
+              >
+                <h4 class="blogpost-title">{{ blogpost.fields.title }}</h4>
+                <p class="blogpost-summary">{{ blogpost.fields.summary }}</p>
+                <button class="blogpost-button">Okumaya devam et</button>
+              </div>
+            </template>
+          </div>
         </div>
-        <div class="blogposts-section-lower-third">
-          <template v-for="blogpost in blogposts">
-            <div
-              :key="blogpost"
-              class="blogpost-tile"
-            >
-              <h4 class="blogpost-title">{{ blogpost.fields.title }}</h4>
-              <p class="blogpost-summary">{{ blogpost.fields.summary }}</p>
-              <button class="blogpost-button">Okumaya devam et</button>
-            </div>
-          </template>
-        </div>
-      </div>
-    </div> -->
+      </div> -->
   </div>
 
 </template>
