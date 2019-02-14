@@ -3,6 +3,7 @@
   <div class="page-outer-container">
     <div class="page-inner-container">
       <h1>Blog</h1>
+      <h3>Tüm Konular</h3>
       <br>
       <template v-for="post in posts">
         <blog-entry
@@ -11,6 +12,15 @@
         />
 
       </template>
+      <button
+        v-if="($route.query.page || 1) > 1"
+        @click="previousPage()"
+      >Previous Page</button>
+      <h3>Page {{ $route.query.page || 1 }}/{{ Math.ceil(totalPosts/pageItems) }}</h3>
+      <button
+        v-if="($route.query.page || 1) < Math.ceil(totalPosts/pageItems)"
+        @click="nextPage()"
+      >Next Page</button>
     </div>
   </div>
 
@@ -26,26 +36,51 @@ export default {
     BlogEntry
   },
   data() {
-    return {}
+    return {
+      pageItems: 3
+    }
   },
-  asyncData({ env }) {
+  methods: {
+    nextPage() {
+      let currentPage = this.$route.query.page || 1
+      this.$router.push({
+        path: '/blog',
+        query: { page: ++currentPage }
+      })
+    },
+    previousPage() {
+      let currentPage = this.$route.query.page || 1
+      this.$router.push({
+        path: '/blog',
+        query: { page: --currentPage }
+      })
+    }
+  },
+  asyncData({ query, env }) {
+    let skipNumber = (query.page - 1 || 0) * 3
+    console.log(query, skipNumber)
     return Promise.all([
       // fetch the owner of the blog
       // fetch all blog posts sorted by creation date
       client.getEntries({
         content_type: env.CTF_BLOG_POST_TYPE_ID,
-        order: '-sys.createdAt'
+        order: '-fields.publishDate',
+        limit: 3,
+        skip: skipNumber
       })
     ])
       .then(([posts]) => {
         // return data that should be available
         // in the template
+        console.log(posts)
         return {
+          totalPosts: posts.total,
           posts: posts.items
         }
       })
       .catch(console.error)
-  }
+  },
+  watchQuery: ['page']
 }
 </script>
 

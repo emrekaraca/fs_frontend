@@ -17,7 +17,7 @@
 
       </div>
     </div>
-    <div class="blogposts-section-outer-container">
+    <!-- <div class="blogposts-section-outer-container">
       <div class="blogposts-section-inner-container">
         <div class="blogposts-section-upper-third">
           <h3 class="blogposts-section-title">En son yazılar</h3>
@@ -36,7 +36,7 @@
           </template>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 </template>
@@ -93,7 +93,7 @@ p {
     width: 1100px;
     height: 100%;
     padding: 30px;
-    border: 1px dashed grey;
+    /* border: 1px dashed grey; */
     display: flex;
     .title-section-left {
       display: flex;

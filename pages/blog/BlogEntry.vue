@@ -4,7 +4,7 @@
       <b-col cols="7">
         <div class="blog-entry-preview-image">
           <img
-            :src="`${post.fields.image.fields.file.url}?fit=fill&w=400&h=300`"
+            :src="`${post.fields.image.fields.file.url}?fit=fill&w=600&h=337`"
             alt="asd"
           >
         </div>
@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .blog-entry-outer-container {
-  margin: 20px 0;
+  margin: 50px 0;
   .blog-entry-info {
     display: flex;
     flex-direction: column;
@@ -69,17 +69,16 @@ export default {
   }
 }
 .blog-entry-preview-image {
-  width: 100%;
-  padding-top: calc(100% / 16 * 9);
+  width: 600px;
+  height: 337px;
+  /* padding-top: calc(100% / 16 * 9); */
   /* background: $light; */
-  border: 5px solid $primary;
+  /* border: 5px solid $primary; */
   box-sizing: border-box;
+  box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 $primary;
   img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 400px;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

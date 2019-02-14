@@ -12,7 +12,7 @@
       >FİTOSOFİA</nuxt-link>
     </div>
     <div class="navbar-menu">
-      <nuxt-link
+      <!-- <nuxt-link
         :class="$route.name==='index'?'selected':''"
         to="/"
       ><span>Anasayfa</span></nuxt-link>
@@ -31,15 +31,15 @@
       <nuxt-link
         :class="$route.name==='academy'?'selected':''"
         to="/academy"
-      ><span>Akademi</span></nuxt-link>
+      ><span>Akademi</span></nuxt-link> -->
       <!-- <nuxt-link
         :class="$route.name==='shop'?'selected':''"
         to="/shop"
       ><span>Shop</span></nuxt-link> -->
-      <nuxt-link
+      <!-- <nuxt-link
         :class="$route.name==='about'?'selected':''"
         to="/about"
-      ><span>Hakkımızda</span></nuxt-link>
+      ><span>Hakkımızda</span></nuxt-link> -->
     </div>
   </div>
 </template>
