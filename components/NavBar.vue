@@ -44,10 +44,14 @@
       </div>
       <div class="navbar-burger">
         <div
+          :class="['menu-burger', mobileMenuOpen ? 'close-btn' : '']"
           href="#menu"
-          class="menu-burger"
           @click="toggleMobileMenu()"
-        />
+        >
+          <div class="top-line" />
+          <div class="middle-line" />
+          <div class="bottom-line" />
+        </div>
       </div>
       <div :class="['navbar-mobile-menu', mobileMenuOpen ? 'mobile-menu-open' : '']">
         <nuxt-link
@@ -95,6 +99,9 @@ export default {
   methods: {
     toggleMobileMenu() {
       this.mobileMenuOpen = !this.mobileMenuOpen
+    },
+    closeMobileMenu() {
+      this.mobileMenuOpen = false
     }
   }
 }
@@ -207,8 +214,41 @@ $burger-height: $burger-width / 3 * 2;
   width: $burger-width;
   height: $burger-height;
   cursor: pointer;
+  [class$='-line'] {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: $burger-height / 5;
+    background-color: $primary;
+    transition: 0.2s;
+  }
+  .top-line {
+    top: 0;
+  }
+  .middle-line {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .bottom-line {
+    bottom: 0;
+  }
+  &.close-btn {
+    .top-line {
+      top: 50%;
+      transform: rotate(45deg);
+      transform-origin: center center;
+    }
+    .middle-line {
+      opacity: 0;
+    }
+    .bottom-line {
+      top: 50%;
+      transform: rotate(-45deg);
+      transform-origin: center center;
+    }
+  }
 }
-.menu-burger:before {
+/* .menu-burger:before {
   content: '';
   position: absolute;
   left: 0;
@@ -218,7 +258,7 @@ $burger-height: $burger-width / 3 * 2;
   background: $primary;
   box-shadow: 0 ($burger-height / 5 * 2) 0 0 $primary,
     0 ($burger-height / 5 * 4) 0 0 $primary;
-}
+} */
 .navbar-mobile-menu {
   position: absolute;
   display: flex;
@@ -239,6 +279,18 @@ $burger-height: $burger-width / 3 * 2;
   }
   @media #{$bp-l} {
     display: none;
+  }
+  a {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 5px 0;
+    color: $primary;
+    cursor: pointer;
+    transition: 0.2s;
+    &.selected {
+      border-bottom: 3px solid $red;
+    }
   }
 }
 </style>
