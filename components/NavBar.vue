@@ -1,61 +1,125 @@
 <template>
   <div class="navbar-outer-container">
-    <div class="navbar-logo">
-      <img
-        src="@/assets/FS_logo.svg"
-        alt="FS-logos"
-        class="navbar-logo-image"
-      >
-      <nuxt-link
-        to="/"
-        class="navbar-logo-title"
-      >FİTOSOFİA</nuxt-link>
-    </div>
-    <div class="navbar-menu">
-      <nuxt-link
-        :class="$route.name==='index'?'selected':''"
-        to="/"
-      ><span>Anasayfa</span></nuxt-link>
-      <nuxt-link
-        :class="$route.path.split('/')[1]==='blog'?'selected':''"
-        to="/blog"
-      ><span>Yazılar</span></nuxt-link>
-      <nuxt-link
-        :class="$route.name==='services'?'selected':''"
-        to="/services"
-      ><span>Hizmetler</span></nuxt-link>
-      <nuxt-link
-        :class="$route.name==='calendar'?'selected':''"
-        to="/calendar"
-      ><span>Etkinlik Takvimi </span></nuxt-link>
-      <nuxt-link
-        :class="$route.name==='academy'?'selected':''"
-        to="/academy"
-      ><span>Akademi</span></nuxt-link>
-      <nuxt-link
-        :class="$route.name==='shop'?'selected':''"
-        to="/shop"
-      ><span>Shop</span></nuxt-link>
-      <nuxt-link
-        :class="$route.name==='about'?'selected':''"
-        to="/about"
-      ><span>Hakkımızda</span></nuxt-link>
+    <div class="navbar-inner-container">
+      <div class="navbar-logo">
+        <img
+          src="@/assets/FS_logo.svg"
+          alt="FS-logos"
+          class="navbar-logo-image"
+        >
+        <nuxt-link
+          to="/"
+          class="navbar-logo-title"
+        >FİTOSOFİA</nuxt-link>
+      </div>
+      <div class="navbar-menu">
+        <nuxt-link
+          :class="$route.name==='index'?'selected':''"
+          to="/"
+        ><span>Anasayfa</span></nuxt-link>
+        <nuxt-link
+          :class="$route.path.split('/')[1]==='blog'?'selected':''"
+          to="/blog"
+        ><span>Yazılar</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='services'?'selected':''"
+          to="/services"
+        ><span>Hizmetler</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='calendar'?'selected':''"
+          to="/calendar"
+        ><span>Etkinlik Takvimi </span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='academy'?'selected':''"
+          to="/academy"
+        ><span>Akademi</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='shop'?'selected':''"
+          to="/shop"
+        ><span>Shop</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='about'?'selected':''"
+          to="/about"
+        ><span>Hakkımızda</span></nuxt-link>
+      </div>
+      <div class="navbar-burger">
+        <div
+          href="#menu"
+          class="menu-burger"
+          @click="toggleMobileMenu()"
+        />
+      </div>
+      <div :class="['navbar-mobile-menu', mobileMenuOpen ? 'mobile-menu-open' : '']">
+        <nuxt-link
+          :class="$route.name==='index'?'selected':''"
+          to="/"
+        ><span>Anasayfa</span></nuxt-link>
+        <nuxt-link
+          :class="$route.path.split('/')[1]==='blog'?'selected':''"
+          to="/blog"
+        ><span>Yazılar</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='services'?'selected':''"
+          to="/services"
+        ><span>Hizmetler</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='calendar'?'selected':''"
+          to="/calendar"
+        ><span>Etkinlik Takvimi </span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='academy'?'selected':''"
+          to="/academy"
+        ><span>Akademi</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='shop'?'selected':''"
+          to="/shop"
+        ><span>Shop</span></nuxt-link>
+        <nuxt-link
+          :class="$route.name==='about'?'selected':''"
+          to="/about"
+        ><span>Hakkımızda</span></nuxt-link>
+
+      </div>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  name: 'NavBar',
+  data() {
+    return {
+      mobileMenuOpen: false
+    }
+  },
+  methods: {
+    toggleMobileMenu() {
+      this.mobileMenuOpen = !this.mobileMenuOpen
+    }
+  }
+}
+</script>
+
+
 <style lang="scss" scoped>
 .navbar-outer-container {
   width: 100%;
-  height: 80px;
+  display: grid;
+  grid-template: $main-grid;
   background: $light;
   box-shadow: 0px 2px 4px 0px #afa2a2;
-  display: flex;
-  justify-content: space-between;
   box-sizing: border-box;
-  padding: 0 18px;
   z-index: 9999;
   margin-bottom: 20px;
+  .navbar-inner-container {
+    position: relative;
+    grid-area: content;
+    display: flex;
+    justify-content: center;
+    @media #{$bp-l} {
+      justify-content: space-between;
+    }
+  }
   .navbar-logo {
     height: 100%;
     display: flex;
@@ -72,9 +136,30 @@
       color: $primary;
     }
   }
+  a {
+    font-family: 'Dosis', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: $primary;
+    cursor: pointer;
+    transition: 0.2s;
+    &.selected {
+      color: #ca6c73;
+      position: relative;
+      &:after {
+        opacity: 1;
+      }
+    }
+    &:hover {
+      color: #ca6c73;
+    }
+  }
   .navbar-menu {
     position: relative;
-    display: flex;
+    display: none;
+    @media #{$bp-l} {
+      display: flex;
+    }
     justify-content: flex-end;
     align-items: center;
     a {
@@ -82,13 +167,7 @@
       height: 100%;
       display: flex;
       align-items: center;
-      font-family: 'Dosis', sans-serif;
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: $primary;
       margin: 0 10px;
-      cursor: pointer;
-      transition: 0.2s;
       &:after {
         /* transition: 0.2s; */
         position: absolute;
@@ -99,16 +178,67 @@
         opacity: 0;
       }
       &.selected {
-        color: #ca6c73;
-        position: relative;
         &:after {
           opacity: 1;
         }
       }
-      &:hover {
-        color: #ca6c73;
-      }
     }
+  }
+}
+$burger-width: 30px;
+$burger-height: $burger-width / 3 * 2;
+.navbar-burger {
+  height: 100%;
+  width: $burger-width;
+  position: absolute;
+  right: 10px;
+  @media #{$bp-m} {
+    right: 25px;
+  }
+  top: 0;
+  display: flex;
+  align-items: center;
+  @media #{$bp-l} {
+    display: none;
+  }
+}
+.menu-burger {
+  position: relative;
+  width: $burger-width;
+  height: $burger-height;
+  cursor: pointer;
+}
+.menu-burger:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: $burger-width;
+  height: $burger-height / 5;
+  background: $primary;
+  box-shadow: 0 ($burger-height / 5 * 2) 0 0 $primary,
+    0 ($burger-height / 5 * 4) 0 0 $primary;
+}
+.navbar-mobile-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 0;
+  max-height: 0;
+  transition: 0.3s;
+  overflow: hidden;
+  background-color: $light;
+  box-shadow: 0px 2px 4px 0px #afa2a2;
+  &.mobile-menu-open {
+    height: calc(100vh - 80px);
+    max-height: calc(100vh - 80px);
+  }
+  @media #{$bp-l} {
+    display: none;
   }
 }
 </style>

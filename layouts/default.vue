@@ -1,14 +1,12 @@
 <template>
   <div class="page-container">
     <nav-bar />
-    <nuxt />
-    <!-- <footer-bar /> -->
-
-    <!-- <section class="main-content columns">
-      <div class="column is-12 has-background-light">
+    <div class="main-grid">
+      <div class="main-content">
         <nuxt />
       </div>
-    </section> -->
+    </div>
+    <!-- <footer-bar /> -->
   </div>
 </template>
 
@@ -32,9 +30,27 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f2ebe3;
+  background: $light;
 }
 .page-title {
   font-size: 2rem;
+}
+.main-grid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .main-content {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media #{$bp-l} {
+  .main-grid {
+    display: grid;
+    grid-template: $main-grid;
+    .main-content {
+      grid-area: content;
+    }
+  }
 }
 </style>

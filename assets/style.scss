@@ -4,6 +4,21 @@ $primary-invert: findColorInvert($primary);
 $light: #f2ebe3;
 $red: #ca6c73;
 
+$main-grid: '. content .' 80px / 1fr minmax(100px, 970px) 1fr;
+
+$bp-m: only screen and
+  (
+    min-width: 572px
+  );
+$bp-l: only screen and
+  (
+    min-width: 970px
+  );
+$bp-xl: only screen and
+  (
+    min-width: 1200px
+  );
+
 body {
   background-color: $light;
   margin: 0;
