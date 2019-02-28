@@ -254,17 +254,20 @@ $burger-height: $burger-width / 3 * 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   top: 100%;
   left: 0;
   width: 100%;
+  min-height: 0;
   height: 0;
   max-height: 0;
   transition: 0.3s;
   overflow: hidden;
   background-color: $light;
   &.mobile-menu-open {
-    height: calc(100vh - 80px);
-    max-height: calc(100vh - 80px);
+    height: calc(100vh - #{$navbar-height});
+    max-height: calc(100vh - #{$navbar-height});
+    min-height: 400px;
   }
   @media #{$bp-l} {
     display: none;
