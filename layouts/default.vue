@@ -6,7 +6,7 @@
         <nuxt />
       </div>
     </div>
-    <!-- <footer-bar /> -->
+    <footer-bar />
   </div>
 </template>
 

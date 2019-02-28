@@ -3,8 +3,10 @@ $primary: #50767b;
 $primary-invert: findColorInvert($primary);
 $light: #f2ebe3;
 $red: #ca6c73;
+$blue: #2a324e;
+$navbar-height: 65px;
 
-$main-grid: '. content .' 80px / 1fr minmax(100px, 970px) 1fr;
+$main-grid: '. content .' auto / 1fr minmax(100px, 970px) 1fr;
 
 $bp-m: only screen and
   (

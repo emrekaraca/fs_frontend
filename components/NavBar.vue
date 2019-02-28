@@ -28,7 +28,7 @@
         <nuxt-link
           :class="$route.name==='calendar'?'selected':''"
           to="/calendar"
-        ><span>Etkinlik Takvimi </span></nuxt-link>
+        ><span>Takvim</span></nuxt-link>
         <nuxt-link
           :class="$route.name==='academy'?'selected':''"
           to="/academy"
@@ -69,7 +69,7 @@
         <nuxt-link
           :class="$route.name==='calendar'?'selected':''"
           to="/calendar"
-        ><span>Etkinlik Takvimi </span></nuxt-link>
+        ><span>Takvim</span></nuxt-link>
         <nuxt-link
           :class="$route.name==='academy'?'selected':''"
           to="/academy"
@@ -111,6 +111,7 @@ export default {
 <style lang="scss" scoped>
 .navbar-outer-container {
   width: 100%;
+  height: $navbar-height;
   display: grid;
   grid-template: $main-grid;
   background: $light;
@@ -248,17 +249,6 @@ $burger-height: $burger-width / 3 * 2;
     }
   }
 }
-/* .menu-burger:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: $burger-width;
-  height: $burger-height / 5;
-  background: $primary;
-  box-shadow: 0 ($burger-height / 5 * 2) 0 0 $primary,
-    0 ($burger-height / 5 * 4) 0 0 $primary;
-} */
 .navbar-mobile-menu {
   position: absolute;
   display: flex;
@@ -272,7 +262,6 @@ $burger-height: $burger-width / 3 * 2;
   transition: 0.3s;
   overflow: hidden;
   background-color: $light;
-  box-shadow: 0px 2px 4px 0px #afa2a2;
   &.mobile-menu-open {
     height: calc(100vh - 80px);
     max-height: calc(100vh - 80px);
