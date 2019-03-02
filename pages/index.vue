@@ -87,10 +87,10 @@ p {
 }
 .title-section-container {
   width: 100%;
-  margin-bottom: 50px;
+  margin: 20px 0 50px 0;
   background: #f2ebe3;
   display: grid;
-  grid-template: 'text' auto 'image' auto / 1fr;
+  grid-template: 'image' auto 'text' auto / 1fr;
   @media #{$bp-l} {
     grid-template: 'text image' auto / 1fr 1fr;
   }

@@ -59,6 +59,7 @@
   background: $blue;
   color: white;
   display: flex;
+  flex-direction: column;
   @media #{$bp-l} {
     display: grid;
     grid-template:
