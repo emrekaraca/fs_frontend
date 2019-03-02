@@ -82,10 +82,12 @@ p {
 }
 .page-outer-container {
   width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 .title-section-container {
   width: 100%;
-  height: calc(100vh - 80px);
+  margin-bottom: 50px;
   background: #f2ebe3;
   display: grid;
   grid-template: 'text' auto 'image' auto / 1fr;
