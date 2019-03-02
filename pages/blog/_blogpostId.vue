@@ -1,21 +1,37 @@
 <template>
   <div class="blog-outer-container">
+    <div class="post-back-link">
+      <a @click="$router.go(-1) ">&#8592; Geri git</a>
+    </div>
     <br>
-    <h1>{{ post.fields.title }}</h1>
+    <div class="post-header">
+      <TitleBox level="1">
+        {{ post.fields.title }}
+      </TitleBox>
+      <TitleBox level="4">
+        {{ post.fields.publishDate.slice(0,10) }}
+      </TitleBox>
+    </div>
     <br>
-    <h4>Tarih: {{ post.fields.publishDate.slice(0,10) }}</h4>
     <br>
-    <p v-html="docToString(post.fields.text)" />
+    <div
+      class="post-content"
+      v-html="docToString(post.fields.text)"
+    />
   </div>
 </template>
 
 <script>
+import TitleBox from '@/components/TitleBox'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 
 export default {
+  components: {
+    TitleBox
+  },
   asyncData({ params }) {
     return Promise.all([
       // fetch the owner of the blog
@@ -56,9 +72,38 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .blog-outer-container {
-  width: 1100px;
+  margin: 20px;
+}
+.post-back-link {
+  color: $primary;
+}
+.post-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media #{$bp-l} {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.post-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    width: 100%;
+  }
+  img {
+    margin: 15px;
+    box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 $primary;
+    max-width: 90%;
+    height: auto;
+    @media #{$bp-l} {
+      max-width: 50%;
+    }
+  }
 }
 .text--bold {
   font-weight: 800;

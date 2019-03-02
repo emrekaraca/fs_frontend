@@ -1,13 +1,13 @@
 <template>
   <div class="page-outer-container">
-    <h1>Hakkımızda</h1>
+    <TitleBox level="1">Hakkımızda</TitleBox>
     <div
       v-for="aboutText in aboutTexts"
       :key="aboutText.fields.order"
       class="about-section-outer-container"
     >
       <div class="about-section-inner-container">
-        <h1>{{ aboutText.fields.title }}</h1>
+        <TitleBox level="1">{{ aboutText.fields.title }}</TitleBox>
         <p>{{ aboutText.fields.text }}</p>
 
       </div>
@@ -17,9 +17,13 @@
 </template>
 
 <script>
+import TitleBox from '@/components/TitleBox'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {
+  components: {
+    TitleBox
+  },
   asyncData({ env }) {
     return Promise.all([
       // fetch the owner of the blog
@@ -43,17 +47,16 @@ export default {
 
 <style lang="scss" scoped>
 .page-outer-container {
-  width: 1100px;
+  margin: 20px;
   .about-section-outer-container {
     width: 100%;
-    height: 500px;
     background: #f2ebe3;
     display: flex;
     justify-content: center;
     margin: 30px 0;
     .about-section-inner-container {
       position: relative;
-      width: 1100px;
+      width: 100%;
       height: 100%;
       padding: 30px;
       border: 1px dashed grey;

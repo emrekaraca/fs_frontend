@@ -7,7 +7,7 @@
       class="academy-section-outer-container"
     >
       <div class="academy-section-inner-container">
-        <h1>{{ course.fields.title }}</h1>
+        <TitleBox level="1">{{ course.fields.title }}</TitleBox>
         <p v-html="docToString(course.fields.text)" />
 
       </div>
@@ -17,10 +17,14 @@
 </template>
 
 <script>
+import TitleBox from '@/components/TitleBox'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {
+  components: {
+    TitleBox
+  },
   asyncData({ env }) {
     return Promise.all([
       // fetch the owner of the blog
@@ -48,10 +52,9 @@ export default {
 
 <style lang="scss" scoped>
 .page-outer-container {
-  width: 1100px;
+  width: 100%;
   .academy-section-outer-container {
     width: 100%;
-    height: 500px;
     background: #f2ebe3;
     display: flex;
     justify-content: center;

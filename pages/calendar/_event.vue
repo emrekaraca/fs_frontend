@@ -1,12 +1,17 @@
 <template>
   <div>
-    <h1>Etkinlik</h1>
+    <TitleBox level="1">Etkinlik</TitleBox>
   </div>
 
 </template>
 
 <script>
-export default {}
+import TitleBox from '@/components/TitleBox'
+export default {
+  components: {
+    TitleBox
+  }
+}
 </script>
 
 <style lang="scss" scoped>

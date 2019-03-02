@@ -2,8 +2,10 @@
 <template>
   <div class="page-outer-container">
     <div class="page-inner-container">
-      <h1>Blog</h1>
-      <h3>Tüm Konular</h3>
+      <div class="blog-header">
+        <h1>Blog</h1>
+        <h3>Tüm Konular</h3>
+      </div>
       <br>
       <template v-for="post in posts">
         <blog-entry
@@ -90,7 +92,9 @@ export default {
   display: flex;
   justify-content: center;
   .page-inner-container {
-    width: 1100px;
+    .blog-header {
+      margin: 0 20px;
+    }
   }
 }
 </style>

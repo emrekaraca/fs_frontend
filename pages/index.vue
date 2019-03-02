@@ -1,33 +1,18 @@
 <template>
   <div class="page-outer-container">
-    <div class="title-section-outer-container">
-      <div class="title-section-inner-container">
-        <b-container>
-          <b-row>
-            <b-col
-              cols="12"
-              md="6"
-              class="title-section-left"
-            >
-              <h2 class="title-section-title">{{ homepage.fields.pageTitle }}</h2>
-              <h4 class="title-section-subtitle">{{ homepage.fields.pageText }}</h4>
-              <h4>Sitemiz yapım aşamasındadır...</h4>
-              <br>
-            </b-col>
-            <b-col
-              cols="12"
-              md="6"
-              class="title-section-right"
-            >
-              <img
-                :src="homepage.fields.heroImage.fields.file.url"
-                class="title-section-image"
-                alt=""
-              >
-
-            </b-col>
-          </b-row>
-        </b-container>
+    <div class="title-section-container">
+      <div class="title-section-left">
+        <h2 class="title-section-title">{{ homepage.fields.pageTitle }}</h2>
+        <h4 class="title-section-subtitle">{{ homepage.fields.pageText }}</h4>
+        <h4>Sitemiz yapım aşamasındadır...</h4>
+        <br>
+      </div>
+      <div class="title-section-right">
+        <img
+          :src="homepage.fields.heroImage.fields.file.url"
+          class="title-section-image"
+          alt=""
+        >
       </div>
     </div>
     <!--
@@ -98,45 +83,45 @@ p {
 .page-outer-container {
   width: 100%;
 }
-.title-section-outer-container {
+.title-section-container {
   width: 100%;
   height: calc(100vh - 80px);
   background: #f2ebe3;
-  display: flex;
-  justify-content: center;
-  .title-section-inner-container {
-    position: relative;
-    width: 1100px;
-    height: 100%;
-    padding: 30px;
-    /* border: 1px dashed grey; */
+  display: grid;
+  grid-template: 'text' auto 'image' auto / 1fr;
+  @media #{$bp-l} {
+    grid-template: 'text image' auto / 1fr 1fr;
+  }
+  .title-section-left {
+    grid-area: text;
     display: flex;
-    .title-section-left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 50%;
-      height: 100%;
-      .title-section-title {
-        font-size: 3rem;
-        font-weight: 600;
-      }
-      .title-section-subtitle {
-        font-size: 1rem;
-        color: #ca6c73;
-      }
+    flex-direction: column;
+    justify-content: center;
+    /* width: 100%;
+    height: 100%; */
+    .title-section-title {
+      font-size: 3rem;
+      font-weight: 600;
     }
-    .title-section-right {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 50%;
-      height: 100%;
-      .title-section-image {
-        width: 80%;
-        box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 #ca6c73;
-      }
+    .title-section-subtitle {
+      font-size: 1rem;
+      color: #ca6c73;
+    }
+    h4 {
+      font-weight: inherit;
+    }
+  }
+  .title-section-right {
+    grid-area: image;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    .title-section-image {
+      width: 80%;
+      box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 #ca6c73;
     }
   }
 }

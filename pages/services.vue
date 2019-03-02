@@ -7,7 +7,7 @@
       class="service-section-outer-container"
     >
       <div class="service-section-inner-container">
-        <h1>{{ service.fields.title }}</h1>
+        <TitleBox level="1">{{ service.fields.title }}</TitleBox>
         <p>{{ service.fields.text }}</p>
 
       </div>
@@ -17,9 +17,13 @@
 </template>
 
 <script>
+import TitleBox from '@/components/TitleBox'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 export default {
+  components: {
+    TitleBox
+  },
   asyncData({ env }) {
     return Promise.all([
       // fetch the owner of the blog
@@ -43,19 +47,16 @@ export default {
 
 <style lang="scss" scoped>
 .page-outer-container {
-  width: 1100px;
   .service-section-outer-container {
     width: 100%;
-    height: 500px;
     background: #f2ebe3;
     display: flex;
     justify-content: center;
     margin: 30px 0;
     .service-section-inner-container {
       position: relative;
-      width: 1100px;
       height: 100%;
-      padding: 30px;
+      padding: 20px;
       border: 1px dashed grey;
       display: flex;
       flex-direction: column;

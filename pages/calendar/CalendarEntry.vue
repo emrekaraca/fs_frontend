@@ -1,6 +1,6 @@
 <template>
   <div class="calendar-entry-outer-container">
-    <h3>{{ calendarEvent.fields.title }}</h3>
+    <TitleBox level="1">{{ calendarEvent.fields.title }}</TitleBox>
     <p>Başlangıç: {{ calendarEvent.fields.startDate.slice(0,10) }}</p>
     <p>Bitiş: {{ calendarEvent.fields.endDate.slice(0,10) }}</p>
     <div v-html="docToString(calendarEvent.fields.text)" />
@@ -16,8 +16,12 @@
 </template>
 
 <script>
+import TitleBox from '@/components/TitleBox'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 export default {
+  components: {
+    TitleBox
+  },
   props: {
     calendarEvent: {
       default() {
@@ -38,7 +42,6 @@ export default {
 .calendar-entry-outer-container {
   border: 1px dashed grey;
   padding: 20px;
-  width: 1100px;
-  margin: 20px 0;
+  margin: 30px 0;
 }
 </style>

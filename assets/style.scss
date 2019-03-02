@@ -36,7 +36,10 @@ body {
     color: $primary;
   }
   a {
+    cursor: pointer;
     text-decoration: none;
+    font-family: 'Dosis', sans-serif;
+    color: $primary;
   }
   button {
     cursor: pointer;

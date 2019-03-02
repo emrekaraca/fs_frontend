@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Etkinlikler</h1>
+  <div class="calendar-area">
+    <TitleBox level="1">Etkinlikler</TitleBox>
     <br>
     <template v-for="(calendarEvent, index) in events">
       <calendar-entry
@@ -12,13 +12,15 @@
 </template>
 
 <script>
+import TitleBox from '@/components/TitleBox'
 import CalendarEntry from './CalendarEntry'
 import { createClient } from '@/plugins/contentful.js'
 const client = createClient()
 
 export default {
   components: {
-    CalendarEntry
+    CalendarEntry,
+    TitleBox
   },
   asyncData({ env }) {
     return Promise.all([
@@ -42,4 +44,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.calendar-area {
+  margin: 0 20px;
+}
 </style>

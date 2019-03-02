@@ -44,12 +44,14 @@ export default {
   margin-bottom: 50px;
   display: grid;
   grid-template: 'image' auto 'text' auto / 1fr;
+  @media #{$bp-l} {
+    grid-template: 'image text' / 1fr 1fr;
+  }
   .blog-entry-preview-image {
     grid-area: image;
-    width: 100%;
     box-sizing: border-box;
-    /* box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 $primary; */
-    /* padding: 0 50px; */
+    box-shadow: -10px -10px 0 0 white, 10px 10px 0 0 $primary;
+    margin: 0 20px;
     margin-bottom: 25px;
     img {
       width: 100%;
@@ -61,7 +63,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 30px;
+    margin: 0 20px;
     .blog-entry-title {
       font-weight: 900;
     }
