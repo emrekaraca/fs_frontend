@@ -96,6 +96,11 @@ export default {
       mobileMenuOpen: false
     }
   },
+  watch: {
+    $route: function() {
+      this.closeMobileMenu()
+    }
+  },
   methods: {
     toggleMobileMenu() {
       this.mobileMenuOpen = !this.mobileMenuOpen
@@ -252,6 +257,7 @@ $burger-height: $burger-width / 3 * 2;
 .navbar-mobile-menu {
   position: absolute;
   display: flex;
+  opacity: 0;
   flex-direction: column;
   align-items: center;
   padding-top: 25px;
@@ -262,10 +268,13 @@ $burger-height: $burger-width / 3 * 2;
   min-height: 0;
   height: 0;
   max-height: 0;
+  transition: height 0.3s;
+  transition: max-height 0.3s;
   transition: 0.3s;
   overflow: hidden;
   background-color: $light;
   &.mobile-menu-open {
+    opacity: 1;
     height: calc(100vh - #{$navbar-height});
     max-height: calc(100vh - #{$navbar-height});
     min-height: 400px;
