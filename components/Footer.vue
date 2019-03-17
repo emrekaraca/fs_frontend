@@ -1,6 +1,6 @@
 <template>
   <div class="footer-outer-container">
-    <div class="footer-top-area">
+    <!-- <div class="footer-top-area">
       <div class="area-logo">
         <img
           src="@/assets/FS_logo_white.svg"
@@ -31,7 +31,7 @@
       <div class="area-newsletter">
         <h4>Newsletter</h4>
       </div>
-    </div>
+    </div> -->
     <div class="footer-line" />
     <div class="footer-lower-area">
       <p>© {{ new Date().getFullYear() }} Şaduman Karaca</p>

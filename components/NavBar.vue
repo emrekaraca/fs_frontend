@@ -20,7 +20,7 @@
         <nuxt-link
           :class="$route.path.split('/')[1]==='blog'?'selected':''"
           to="/blog"
-        ><span>Yazılar</span></nuxt-link>
+        ><span>Blog</span></nuxt-link>
         <nuxt-link
           :class="$route.name==='services'?'selected':''"
           to="/services"
@@ -61,7 +61,7 @@
         <nuxt-link
           :class="$route.path.split('/')[1]==='blog'?'selected':''"
           to="/blog"
-        ><span>Yazılar</span></nuxt-link>
+        ><span>Blog</span></nuxt-link>
         <nuxt-link
           :class="$route.name==='services'?'selected':''"
           to="/services"

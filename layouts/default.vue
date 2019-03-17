@@ -40,7 +40,7 @@ export default {
   height: 100%;
   display: flex;
   .main-content {
-    min-height: calc(100vh - #{$navbar-height} - 200px);
+    min-height: calc(100vh - #{$navbar-height} - #{$footer-height});
     width: 100%;
     height: 100%;
   }

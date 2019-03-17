@@ -15,6 +15,17 @@
         >
       </div>
     </div>
+    <div class="newsletter-section-container">
+      <iframe
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        src="https://app.mailjet.com/widget/iframe/3N75/beR"
+        width="100%"
+        height="225"
+      />
+    </div>
     <!--
           <div
           class="blogposts-section-outer-container"
@@ -200,5 +211,12 @@ p {
       }
     }
   }
+}
+.newsletter-section-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 </style>
